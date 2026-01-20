@@ -1,0 +1,173 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\accountManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|solutionrelative:accountManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\fileDataMaster.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|solutionrelative:fileDataMaster.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\fileDataMaster.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|solutionrelative:fileDataMaster.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\menusManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|solutionrelative:menusManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\accountManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|solutionrelative:accountManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\Password Manager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|solutionrelative:Password Manager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\passwordMaster.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|solutionrelative:passwordMaster.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\menusManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|solutionrelative:menusManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\passwordMaster.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FE7B0FF1-254E-4475-AC9B-FC60E7040DA8}|Password Manager.vcxproj|solutionrelative:passwordMaster.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Password Manager.cpp",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\Password Manager.cpp",
+              "RelativeDocumentMoniker": "Password Manager.cpp",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\Password Manager.cpp",
+              "RelativeToolTip": "Password Manager.cpp",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAAB0AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-01-12T19:58:05.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "accountManager.h",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\accountManager.h",
+              "RelativeDocumentMoniker": "accountManager.h",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\accountManager.h",
+              "RelativeToolTip": "accountManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-01-20T01:09:52.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "accountManager.cpp",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\accountManager.cpp",
+              "RelativeDocumentMoniker": "accountManager.cpp",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\accountManager.cpp",
+              "RelativeToolTip": "accountManager.cpp",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAADkAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-01-20T01:17:34.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "fileDataMaster.cpp",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\fileDataMaster.cpp",
+              "RelativeDocumentMoniker": "fileDataMaster.cpp",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\fileDataMaster.cpp",
+              "RelativeToolTip": "fileDataMaster.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-01-20T01:46:00.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "fileDataMaster.h",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\fileDataMaster.h",
+              "RelativeDocumentMoniker": "fileDataMaster.h",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\fileDataMaster.h",
+              "RelativeToolTip": "fileDataMaster.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-01-20T01:41:58.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "menusManager.h",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\menusManager.h",
+              "RelativeDocumentMoniker": "menusManager.h",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\menusManager.h",
+              "RelativeToolTip": "menusManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-01-16T07:44:06.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "menusManager.cpp",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\menusManager.cpp",
+              "RelativeDocumentMoniker": "menusManager.cpp",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\menusManager.cpp",
+              "RelativeToolTip": "menusManager.cpp",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-01-16T07:49:25.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "passwordMaster.h",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\passwordMaster.h",
+              "RelativeDocumentMoniker": "passwordMaster.h",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\passwordMaster.h",
+              "RelativeToolTip": "passwordMaster.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-01-20T00:44:33.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "passwordMaster.cpp",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\passwordMaster.cpp",
+              "RelativeDocumentMoniker": "passwordMaster.cpp",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\CSE 310\\Sprint 1 (Week 2 \u0026 3)\\Password Manager\\passwordMaster.cpp",
+              "RelativeToolTip": "passwordMaster.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-01-20T01:34:34.407Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
