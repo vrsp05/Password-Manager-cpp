@@ -13,7 +13,7 @@
 // Use the standard namespace.
 using namespace std;
 
-/// Constructor: Sets the default filename.
+// Constructor: Sets the default filename.
 accountManager::accountManager()
 {   
 	// Set the filename for storing admin account data.
@@ -34,7 +34,71 @@ bool accountManager::accountExists()
 } // End of accountExists function.
 
 
-  // Function to create a new account.
+// Helper function to get input without spaces.
+string accountManager::getInputWithoutSpaces(const string& prompt)
+{
+	// Variable to hold user input.
+	string input;
+
+	// Loop until valid input without spaces is received.
+	while (true)
+	{
+		// Display prompt.
+		cout << prompt;
+
+		// Read input.
+		cin >> input;
+
+		// Clear the rest of the line to check for extra characters.
+		string remaining;
+		getline(cin, remaining);
+
+		// Check if there was anything after the first word (spaces + text).
+		if (!remaining.empty())
+		{
+			// Check if remaining has non-whitespace characters.
+			bool hasNonSpace = false;
+
+			// Iterate through remaining characters.
+			for (char c : remaining)
+			{	
+				// If any character is not a space, mark flag and break.
+				if (!isspace(c))
+				{	
+					// Found a non-space character.
+					hasNonSpace = true;
+
+					// Break out of the loop.
+					break;
+				
+				} // End of if block.
+			
+			} // End of for loop.
+
+			// If there are non-space characters, input had spaces.
+			if (hasNonSpace)
+			{	
+				// Inform the user of the error.
+				cout << "Error: Input cannot contain spaces. Please try again.\n";
+
+				// Continue to next iteration to re-prompt.
+				continue;
+
+			} // End of if block.
+		}
+
+		// Input is valid (no spaces).
+		break;
+
+	} // End of while loop.
+
+	// Return the valid input.
+	return input;
+
+} // End of getInputWithoutSpaces function.
+
+
+// Function to create a new account.
 void accountManager::createAccount()
 {   
 	// Variables to hold user input.
@@ -42,10 +106,8 @@ void accountManager::createAccount()
 
 	// 1. Get username and password from the user.
     cout << "\n--- Create Master Account ---\n";
-    cout << "Enter new Username: ";
-    cin >> adminUsername;
-    cout << "Enter new Master Password: ";
-    cin >> adminPassword;
+	adminUsername = getInputWithoutSpaces("Enter new Username (no spaces): ");
+	adminPassword = getInputWithoutSpaces("Enter new Master Password (no spaces): ");
 
     // Write the credentials to the file.
     ofstream file(adminAccountFilename);
@@ -87,7 +149,7 @@ bool accountManager::login()
 	// Read the stored username and password.
     if (file.is_open())
     {   
-		// Read username and password from the file.
+		// Read username and password from the file (no spaces expected).
         file >> adminAccountUsername >> adminAccountPassword;
 
 		// Close the file.
@@ -106,12 +168,10 @@ bool accountManager::login()
     
 	} // End of else block.
 
-    // 2. Ask the user for credentials
+    // 2. Ask the user for credentials and read input.
     cout << "\n--- Login ---\n";
-    cout << "Username: ";
-    cin >> usernameInput;
-    cout << "Password: ";
-    cin >> passwordInput;
+	usernameInput = getInputWithoutSpaces("Username: ");
+	passwordInput = getInputWithoutSpaces("Password: ");
 
     // 3. Verify
     if (usernameInput == adminAccountUsername && passwordInput == adminAccountPassword)

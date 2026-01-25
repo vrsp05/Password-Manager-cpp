@@ -61,8 +61,14 @@ int main()
 	// Variable to track login status.
 	bool loggedIn = false;
 
+	// Variable to track login attempts.
+	int loginAttempts = 0;
+
+	// Maximum number of login attempts.
+	const int MAX_LOGIN_ATTEMPTS = 3;
+
 	// Loop until the user successfully logs in or chooses to exit.
-	while (loggedIn == false)
+	while (loggedIn == false && loginAttempts < MAX_LOGIN_ATTEMPTS)
 	{	
 		// Show the login menu and get user choice.
 		int choice = menuManager.showLoginMenu();
@@ -70,6 +76,9 @@ int main()
 		// If user chooses to login, attempt login.
 		if (choice == 1)
 		{	
+			// Increment login attempts.
+			loginAttempts++;
+
 			// Attempt to login.
 			if (accountManager.login())
 			{	
@@ -85,7 +94,7 @@ int main()
 			else
 			{	
 				// Login failure message.
-				cout << "Login Failed. Try again.\n";
+				cout << "Login Failed. Attempt " << loginAttempts << " of " << MAX_LOGIN_ATTEMPTS << ".\n";
 
 			} // End of else block.
 
@@ -103,6 +112,17 @@ int main()
 		} // End of else block.
 	
 	} // End of while loop.
+
+	// If maximum login attempts reached, exit the program.
+	if (loginAttempts >= MAX_LOGIN_ATTEMPTS && !loggedIn)
+	{	
+		// Max attempts reached message.
+		cout << "Maximum login attempts reached. Exiting program.\n";
+
+		// End the program.
+		return 0;
+
+	} // End of if block.
 
 	// --- PHASE 3: Main Application Loop ---
 

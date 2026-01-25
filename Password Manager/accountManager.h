@@ -23,6 +23,9 @@ class accountManager
         string adminAccountUsername;
         string adminAccountPassword;
 
+		// Helper function to get input without spaces.
+		string getInputWithoutSpaces(const string& prompt);
+
 	// Declaring the public section of the class.
     public:
 

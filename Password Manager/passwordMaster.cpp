@@ -6,6 +6,8 @@
 #include <numeric>
 #include <vector>
 #include <fstream>
+#include <cstdlib>
+#include <ctime>
 #include "accountManager.h"
 #include "menusManager.h"
 #include "passwordMaster.h"
@@ -19,10 +21,22 @@ passwordMaster::passwordMaster()
 	// Set the filename for storing password data.
     allStoredDataFilename = "allStoredData.txt";
 
-    // Seed the random number generator so IDs are different every time
-    srand(time(0));
+	// Seed the random numbrer generator so IDs are different every time.
+	srand(static_cast<unsigned int>(time(0)));
+
+	// Create an instance of menusManager.
+	menuManager = new menusManager();
 
 } // End of the constructor.
+
+
+// Destructor: Cleans up resources.
+passwordMaster::~passwordMaster()
+{   
+    // Delete the menusManager instance to free memory.
+    delete menuManager;
+
+} // End of the destructor.
 
 // Helper: Loads data from text file into the 'allStoredPasswords' vector
 void passwordMaster::loadPasswords()
@@ -93,16 +107,46 @@ void passwordMaster::addPassword()
     cout << "\n--- Add New Password ---\n";
     cout << "Enter Site Name: ";
 
-	// Read site name (no spaces).
-    cin >> newEntry.siteName;
+	// Read site name (allows spaces).
+    getline(cin, newEntry.siteName);
 
+	// Prompt for password.
     cout << "Enter Password: ";
     
-    // Read site password (no spaces).
-    cin >> newEntry.sitePassword;
+    // Read site password (allow spaces).
+    getline(cin, newEntry.sitePassword);
 
     // Generate a random 4-digit ID (1000 to 9999)
-    newEntry.id = rand() % 9000 + 1000;
+
+	// Variable for existing ID check.
+	bool idExists = true;
+
+	// Loop until a unique ID is found.
+    while (idExists)
+    {
+        // Generate random ID.
+		newEntry.id = rand() % 9000 + 1000;
+
+		// Check if this ID already exists.
+		idExists = false;
+
+		// Iterate through existing entries to check for ID collision.
+        for (const auto& entry : allStoredPasswords)
+        {   
+			// If ID exists, set flag and break.
+            if (entry.id == newEntry.id)
+            {   
+				// Modify flag to indicate ID exists.
+                idExists = true;
+
+				// Break out of the for loop to generate a new ID.
+                break;
+            
+			} // End of if block.
+
+		} // End of for loop.
+
+	} // End of while loop.
 
 	// Add the new entry to the vector and save to file.
     allStoredPasswords.push_back(newEntry);
@@ -152,6 +196,7 @@ void passwordMaster::viewPasswords()
 // 3. Edit: Find by ID, update details, save.
 void passwordMaster::editPassword()
 {   
+
 	// Ensure we have the latest data.
     loadPasswords();
 
@@ -161,8 +206,8 @@ void passwordMaster::editPassword()
 	// Prompt user for the ID to edit.
     cout << "\nEnter ID of password to edit: ";
     
-    // Read the user input.
-    cin >> targetID;
+    // Read and validate the user input.
+    targetID = menuManager->getValidIntInput();
 
 	// Flag to track if we found the ID.
     bool found = false;
@@ -177,7 +222,7 @@ void passwordMaster::editPassword()
             found = true;
 
 			// Display current details.
-            cout << "Current: " << entry.siteName << " (" << entry.sitePassword << ")\n";
+            cout << "Site Name: " << entry.siteName << " Site Password: " << entry.sitePassword << "\n";
 
 			// Confirm edit action variable.
             char confirm;
@@ -188,20 +233,23 @@ void passwordMaster::editPassword()
 			// Read user confirmation.
             cin >> confirm;
 
+            // Clear input buffer after reading char.
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
 			// If confirmed, get new details.
             if (confirm == 'y' || confirm == 'Y')
             {   
 				// Get new site name and password.
                 cout << "Enter New Site Name: ";
 
-				// Read new site name (no spaces).
-                cin >> entry.siteName;
+				// Read new site name (allow spaces).
+                getline(cin, entry.siteName);
 
 				// Get new password.
                 cout << "Enter New Password: ";
 
-				// Read new site password (no spaces).
-                cin >> entry.sitePassword;
+				// Read new site password (allow spaces).
+                getline(cin, entry.sitePassword);
 
 				// Save updated data back to file.
                 savePasswords();
@@ -245,7 +293,7 @@ void passwordMaster::deletePassword()
     cout << "\nEnter ID of password to delete: ";
 
 	// Read the user input.
-    cin >> targetID;
+    targetID = menuManager->getValidIntInput();
 
 	// Flag to track if we found the ID.
     bool found = false;
@@ -270,6 +318,9 @@ void passwordMaster::deletePassword()
 
 			// Read user confirmation.
             cin >> confirm;
+
+            // Clear input buffer after reading char.
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
 			// If confirmed, delete the entry.
             if (confirm == 'y' || confirm == 'Y')
@@ -304,5 +355,3 @@ void passwordMaster::deletePassword()
     if (!found) cout << "ID not found.\n";
 
 } // End of deletePassword function.
-
-

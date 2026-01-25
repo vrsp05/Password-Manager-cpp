@@ -7,8 +7,9 @@
 #include <algorithm>
 #include <numeric>
 #include <vector>
-#include "accountManager.h"
-#include "menusManager.h"
+
+// Forwared declaration of menusManager to avoid circular dependency.
+class menusManager;
 
 // Use the standard namespace.
 using namespace std;
@@ -44,12 +45,18 @@ class passwordMaster
 
         // Helper: Saves the current 'allStoredPasswords' vector to the text file
         void savePasswords();
+
+		// Create instance of menusManager to use input helper.
+		menusManager* menuManager;
     
     // Declaring the public section of the class.
     public:
         
 		// Constructor.
         passwordMaster();
+
+		// Destructor.
+		~passwordMaster();
 
         // 1. Add: Ask user for details, generate ID, save.
         void addPassword();

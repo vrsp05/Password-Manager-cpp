@@ -31,5 +31,7 @@ class menusManager {
         // Returns user choice (1-5).
         int showMainMenu();
 
-}; // End of MenusManager class.
+        // Helper function to safely get integer input.
+        int getValidIntInput();
 
+}; // End of MenusManager class.
