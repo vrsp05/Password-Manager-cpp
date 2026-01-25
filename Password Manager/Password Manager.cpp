@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <numeric>
 #include <vector>
+#include <fstream>
 
 // Include all class headers.
 #include "menusManager.h"
@@ -20,95 +21,163 @@ using namespace std;
 // Main function - execution starts here.
 int main()
 {   
-	// Create an instance of the MenusManager class.
-	MenusManager menuManager;
-
-	// Create an instance of the accountManager class.
+	// Create instances of the manager classes.
 	accountManager accountManager;
+	passwordMaster passwordMaster;
+	menusManager menuManager;
 
-	// Call the loginUser function to handle user login.
-	accountManager.loginUser();
+	// --- PHASE 1: Account Check / Creation ---
 
-	// Call the main menu function and store the returned choice.
-	int menu_choice = menuManager.displayMainMenu();
+	// Check if an account already exists.
+	if (!accountManager.accountExists())
+	{	
+		// No account exists, prompt user to create one.
+		int choice = menuManager.showAccountCreationMenu();
 
-	// Variable to track if the user input is valid.
-	bool valid_menu_input = false;
-
-	// Do while the user input is invalid.
-	do
-	{
-		// Call the main menu function and store the returned choice.
-		int menu_choice = menuManager.displayMainMenu();
-
-		// Handle user choice using if-else statements.
-
-		// Option 1: Add a new password.
-		if (menu_choice == 1)
-		{
-			// Mark the input as valid.
-			valid_menu_input = true;
-
-			cout << "You selected to add a new password." << endl;
-			// Code to add a new password would go here.
+		// If user chooses to create an account, proceed.
+		if (choice == 1)
+		{	
+			// Create a new account.
+			accountManager.createAccount();
+			// After creation, we fall through to the Login Phase.
 
 		} // End of if block.
 
-		// Option 2: View existing passwords.
-		else if (menu_choice == 2)
-		{
-			// Mark the input as valid.
-			valid_menu_input = true;
-
-			cout << "You selected to view existing passwords." << endl;
-			// Code to view existing passwords would go here.
-
-		} // End of else if block.
-
-		// Option 3: Edit a current password.
-		else if (menu_choice == 3)
-		{
-			// Mark the input as valid.
-			valid_menu_input = true;
-
-			cout << "You selected to edit a current password." << endl;
-			// Code to edit a current password would go here.
-
-		} // End of else if block.
-
-		// Option 4: Delete a password.
-		else if (menu_choice == 4)
-		{
-			// Mark the input as valid.
-			valid_menu_input = true;
-
-			cout << "You selected to delete a password." << endl;
-			// Code to delete a password would go here.
-
-		} // End of else if block.
-
-		// Option 5: Exit the program.
-		else if (menu_choice == 5)
-		{
-			// Mark the input as valid.
-			valid_menu_input = true;
-
-			cout << "Exiting the Password Manager. Goodbye!" << endl;
-			// Code to exit the program would go here.
-
-		} // End of else if block.
-
-		// Handle invalid input.
+		// If user chooses to exit, terminate the program.
 		else
-		{
-			cout << "\nInvalid choice. Please select a valid option (1-5).\n" << endl;
-			// Code to handle invalid input would go here.
+		{	
+			// Exit the program message.
+			cout << "Exiting program.\n";
+
+			// End the program.
+			return 0;
 
 		} // End of else block.
+	
+	} // End of if block.
 
-	} while (!valid_menu_input); // End of do-while loop.
+	// --- PHASE 2: Login Loop ---
 
-	// Define end of main function.
+	// Variable to track login status.
+	bool loggedIn = false;
+
+	// Loop until the user successfully logs in or chooses to exit.
+	while (loggedIn == false)
+	{	
+		// Show the login menu and get user choice.
+		int choice = menuManager.showLoginMenu();
+
+		// If user chooses to login, attempt login.
+		if (choice == 1)
+		{	
+			// Attempt to login.
+			if (accountManager.login())
+			{	
+				// Successful login.
+				loggedIn = true;
+
+				// Login success message.
+				cout << "Login Successful!\n";
+
+			} // End of if block.
+
+			// If login fails, inform the user.
+			else
+			{	
+				// Login failure message.
+				cout << "Login Failed. Try again.\n";
+
+			} // End of else block.
+
+		} // End of if block.
+
+		// Else if the user chooses to exit, terminate the program.
+		else
+		{	
+			// Exit the program message.
+			cout << "Exiting program.\n";
+
+			// End the program.
+			return 0;
+
+		} // End of else block.
+	
+	} // End of while loop.
+
+	// --- PHASE 3: Main Application Loop ---
+
+	// This runs until the user chooses to exit (Option 5)
+	bool running = true;
+	
+	// Main application loop.
+	while (running)
+	{	
+		// Show the main menu and get user choice.
+
+		// Dsplay main menu and get user choice.
+		int choice = menuManager.showMainMenu();
+
+		// Handle user choice.
+		switch (choice)
+		{	
+			// 1. Add Password.
+			case 1:
+
+				// Call the addPassword function.
+				passwordMaster.addPassword();
+
+				// Break to avoid fall-through.
+				break;
+		
+			// 2. View All Passwords.
+			case 2:
+
+				// Call the viewPasswords function.
+				passwordMaster.viewPasswords();
+
+				// Break to avoid fall-through.
+				break;
+
+			case 3:
+
+				// Call the editPassword function.
+				passwordMaster.editPassword();
+
+				// Break to avoid fall-through.
+				break;
+
+			// 4. Delete a Password.
+			case 4:
+
+				// Call the deletePassword function.
+				passwordMaster.deletePassword();
+
+				// Break to avoid fall-through.
+				break;
+
+			// 5. Exit Program.
+			case 5:
+
+				// Set running to false to exit the loop.
+				running = false;
+
+				// Exit message.
+				cout << "Goodbye!\n";
+				
+				//	Break to avoid fall-through.
+				break;
+			
+			// Default case for invalid input.
+			default:
+
+				// Inform the user of invalid option.
+				cout << "Invalid option. Please try again.\n";
+		
+		} // End of switch block.
+	
+	} // End of while loop.
+
+	// Program ends here.
 	return 0;
 
 } // End of main.cpp file.

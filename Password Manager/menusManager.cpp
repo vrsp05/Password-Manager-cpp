@@ -5,64 +5,72 @@
 #include <algorithm>
 #include <numeric>
 #include <vector>
+#include <fstream>
 #include "accountManager.h"
 #include "menusManager.h"
-#include "fileDataMaster.h"
 #include "passwordMaster.h"
 
 // Use the standard namespace.
 using namespace std;
 
-// Empty constructor for the MenusManager class. 
-MenusManager::MenusManager()
-{
+// Function to display the account creation menu.
+int menusManager::showAccountCreationMenu()
+{   
+	// Variable to hold user choice.
+    int creationMenuChoise;
 
-} // End of the constructor.
-
-// Function to display the main menu and get user input.
-int MenusManager::displayMainMenu()
-{
-	// Variable to store user choice.
-	int menu_choice;
-
-	// Display the main menu.
-	cout << "Password Manager Main Menu" << endl;
-	cout << "1. Add a new password" << endl;
-	cout << "2. View existing passwords" << endl;
-	cout << "3. Edit an existing password" << endl;
-	cout << "4. Delete a password" << endl;
-	cout << "5. Exit" << endl;
-
-	// Prompt user for input.
-	cout << "Please select an option (1-5): ";
+	// Display account creation options.
+    cout << "\n--- Welcome ---\n";
+    cout << "No master account found.\n";
+    cout << "1. Create Master Account\n";
+    cout << "Press any other key to exit program.\n";
+    cout << "Select option: ";
 
 	// Get user input.
-	cin >> menu_choice;
+    cin >> creationMenuChoise;
 
 	// Return the user's choice.
-	return menu_choice;
+    return creationMenuChoise;
 
-} // End of displayMainMenu function.
+} // End of showAccountCreationMenu function.
 
-// Function to display the login menu and get user input.
-int MenusManager::displayLoginMenu()
-{
-	// Variable to store user choice.
-	int login_choice;
 
-	// Display the main menu.
-	cout << "Login Menu" << endl;
-	cout << "1. Login" << endl;
-	cout << "2. Create Account" << endl;
-	cout << "3. Exit" << endl;
-
-	// Prompt user for input.
-	cout << "Please select an option (1-3): ";
+// Function to display the login menu.
+int menusManager::showLoginMenu()
+{   
+	// Variable to hold user choice.
+    int loginMenuChoice;
+    cout << "\n--- Welcome Back ---\n";
+    cout << "1. Login\n";
+    cout << "Press any other key to exit program.\n";
+    cout << "Select option: ";
 
 	// Get user input.
-	cin >> login_choice;
+    cin >> loginMenuChoice;
 
 	// Return the user's choice.
-	return login_choice;
+    return loginMenuChoice;
 
-} // End of displayMainMenu function.
+} // End of showLoginMenu function.
+
+
+// Function to display the main application menu.
+int menusManager::showMainMenu()
+{   
+	// Variable to hold user choice.
+    int mainMenuChoice;
+    cout << "\n--- Main Menu ---\n";
+    cout << "1. Add Password\n";
+    cout << "2. View All Passwords\n";
+    cout << "3. Edit an Existing Password\n";
+    cout << "4. Delete a Password\n";
+    cout << "5. Exit Program\n";
+    cout << "Select option: ";
+
+	// Get user input.
+    cin >> mainMenuChoice;
+
+	// Return the user's choice.
+    return mainMenuChoice;
+
+} // End of showMainMenu function.

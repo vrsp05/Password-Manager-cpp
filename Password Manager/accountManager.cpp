@@ -5,105 +5,128 @@
 #include <algorithm>
 #include <numeric>
 #include <vector>
+#include <fstream>
 #include "accountManager.h"
 #include "menusManager.h"
-#include "fileDataMaster.h"
 #include "passwordMaster.h"
 
 // Use the standard namespace.
 using namespace std;
 
-// Implementation of the accountManager class constructor.
+/// Constructor: Sets the default filename.
 accountManager::accountManager()
-{
+{   
+	// Set the filename for storing admin account data.
+    adminAccountFilename = "adminAccountData.txt";
 
-}; // End of the constructor.
+} // End of the constructor.
 
 
-// Implementation of the loginUser function.
-void accountManager::loginUser()
-{
-	// Create an instance of the MenusManager class to display the login menu.
-	MenusManager menuManager;
+// Function to check if the account file exists.
+bool accountManager::accountExists()
+{   
+	// Try to open the file.
+    ifstream file(adminAccountFilename);
 
-	// Variable to track if the user input is valid.
-	bool valid_login_input = false;
+    // If the file opens successfully, it exists
+    return file.good();
 
-	// Do while the user input is invalid.
-	do
-	{
-		// Display the login menu to the user.
-		int login_choice = menuManager.displayLoginMenu();
+} // End of accountExists function.
 
-		// Handle user choice using if-else statements.
 
-		// Option 1: Login.
-		if (login_choice == 1)
-		{
-
-			cout << "You selected to Login," << endl;
-			// Code to add a new password would go here.
-
-			// Mark the input as valid.
-			valid_login_input = true;
-
-		} // End of if block. 
-
-		// Option 2: Create an account.
-		else if (login_choice == 2)
-		{
-
-			// Call the createAccount function to handle account creation.
-			createAccount();
-
-		} // End of else if block.
-
-		// Option 3: Exit the program.
-		else if (login_choice == 3)
-		{
-
-			// Mark the input as valid.
-			valid_login_input = true;
-
-			cout << "Exiting the Password Manager. Goodbye!" << endl;
-			// Code to exit the program would go here.
-
-		} // End of else if block.
-
-		// Handle invalid input.
-		else
-		{
-			// Display invalid input message.
-			cout << "\nInvalid choice. Please select a valid option (1-3).\n" << endl;
-			// Code to handle invalid input would go here.
-
-		} // End of else block.
-
-	} while (valid_login_input == false); // End of do-while loop.
-
-}; // End of loginUser function.
-
-// Implementation of the createAccount function using a txt file to store account information.
+  // Function to create a new account.
 void accountManager::createAccount()
-{	
-	// Prompt user for account creation information.
-	cout << "You have selected to create an account, please enter the information required below." << endl;
+{   
+	// Variables to hold user input.
+    string adminUsername, adminPassword;
 
-	// Prompt the user for a username.
-	cout << "Enter your desired username: ";
+	// 1. Get username and password from the user.
+    cout << "\n--- Create Master Account ---\n";
+    cout << "Enter new Username: ";
+    cin >> adminUsername;
+    cout << "Enter new Master Password: ";
+    cin >> adminPassword;
 
-	// Create variable and read the username from user input.
-	string account_username;
-	cin >> account_username;
+    // Write the credentials to the file.
+    ofstream file(adminAccountFilename);
 
-	// Prompt the user for a password.
-	cout << "Enter your desired password: ";
+	// 2. Save the credentials to the file.
+    if (file.is_open())
+    {   
+		// Write username and password to the file.
+        file << adminUsername << endl << adminPassword;
 
-	// Create variable and read the password from user input.
-	string account_master_password;
-	cin >> account_master_password;
+		// Close the file.
+        file.close();
+
+		// Confirm account creation.
+        cout << "Account created successfully!\n";
+
+	} // End of if block.
+
+	// 3. Handle file creation error.
+    else {
+
+		// Error handling if file cannot be created.
+        cout << "Error: Could not create account file.\n";
+
+	} // End of else block.
+
+} // End of createAccount function.
 
 
+// Function to handle user login.
+bool accountManager::login()
+{
+	// Variables to hold stored and input credentials.
+    string usernameInput, passwordInput;
 
+    // 1. Load the existing account data from the file
+    ifstream file(adminAccountFilename);
 
-}
+	// Read the stored username and password.
+    if (file.is_open())
+    {   
+		// Read username and password from the file.
+        file >> adminAccountUsername >> adminAccountPassword;
+
+		// Close the file.
+        file.close();
+
+	} // End of if block.
+
+	// Handle file read error.
+    else {
+
+		// Error handling if file cannot be read.
+        cout << "Error: Could not read account file.\n";
+
+		// Return false indicating login failure.
+        return false;
+    
+	} // End of else block.
+
+    // 2. Ask the user for credentials
+    cout << "\n--- Login ---\n";
+    cout << "Username: ";
+    cin >> usernameInput;
+    cout << "Password: ";
+    cin >> passwordInput;
+
+    // 3. Verify
+    if (usernameInput == adminAccountUsername && passwordInput == adminAccountPassword)
+    {   
+		// Login successful.
+        return true;
+
+	} // End of if block.
+
+	// Login failed.
+    else
+    {   
+		// Return false indicating login failure.
+        return false;
+
+	} // End of else block.
+
+} // End of login function.

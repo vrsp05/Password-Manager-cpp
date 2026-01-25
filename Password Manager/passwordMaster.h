@@ -8,35 +8,59 @@
 #include <numeric>
 #include <vector>
 #include "accountManager.h"
-#include "fileDataMaster.h"
 #include "menusManager.h"
 
 // Use the standard namespace.
 using namespace std;
 
+// A simple structure to hold one password entry
+struct PasswordEntry {
+    
+	// Unique identifier for the password entry.
+    int id;
+
+	// Site or service name.
+    string siteName;
+
+	// Username for the site or service.
+    string sitePassword;
+
+}; // End of PasswordEntry struct.
+
 // This is the declaration of the passwordMaster class.
 class passwordMaster
-{
-
+{   
 	// Declaring the private section of the class.
-	private:
+    private:
 
+		// Filename to store passwords.
+        string allStoredDataFilename;
 
-	// Declaring the public section of the class.
-	public:
+		// Vector to hold all password entries in memory.
+        vector<PasswordEntry> allStoredPasswords;
 
-		// Creating empty constructor for the passwordMaster class.
-		passwordMaster();
+        // Helper: Loads data from text file into the 'allStoredPasswords' vector
+        void loadPasswords();
 
-		// Declaring function to add a new password.
-		void addNewPassword();
+        // Helper: Saves the current 'allStoredPasswords' vector to the text file
+        void savePasswords();
+    
+    // Declaring the public section of the class.
+    public:
+        
+		// Constructor.
+        passwordMaster();
 
-		// Declaring function to view existing passwords.
-		void viewExistingPasswords();
+        // 1. Add: Ask user for details, generate ID, save.
+        void addPassword();
 
-		// Declaring function to edit an existing password.
-		void editExistingPassword();
+        // 2. View: Display all passwords in a table.
+        void viewPasswords();
 
-		// Declaring function to delete a password.
-		void deletePassword();
-};
+        // 3. Edit: Find by ID, update details, save.
+        void editPassword();
+
+        // 4. Delete: Find by ID, remove, save.
+        void deletePassword();
+
+}; // End of passwordMaster class.

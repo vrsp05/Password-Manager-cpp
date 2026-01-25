@@ -1,6 +1,5 @@
 #pragma once
 
-
 // Include all the needed libraries.
 #include <iostream>
 #include <string>
@@ -12,25 +11,33 @@
 // Use the standard namespace.
 using namespace std;
 
+// This is the declaration of the accountManager class.
 class accountManager
 {
 
-	// Declaring the private section of the class.
-	private:
+    // Declaring the private section of the class.
+    private:
 
+		// Admin account variables.
+        string adminAccountFilename;
+        string adminAccountUsername;
+        string adminAccountPassword;
 
 	// Declaring the public section of the class.
-	public:
+    public:
 
-		// Creating empty constructor for the accountManager class.
-		accountManager();
+        // Constructor
+        accountManager();
 
-		// Declaring function that handles user login.
-		void loginUser();
+        // Checks if the "account.txt" file already exists
+        bool accountExists();
 
-		// Declaring function that handles account creation.
-		void createAccount();
+        // Handles user input to create a new account and saves it
+        void createAccount();
 
+        // Handles user input for login and verifies against the file.
+        // Returns true if login is successful, false otherwise.
+        bool login();
 
-};
+}; // End of accountManager class.
 

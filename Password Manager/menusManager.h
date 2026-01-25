@@ -8,31 +8,28 @@
 #include <numeric>
 #include <vector>
 #include "accountManager.h"
-#include "fileDataMaster.h"
 #include "passwordMaster.h"
 
 // Use the standard namespace.
 using namespace std;
 
 // This is the declaration of the MenusManager class.
-class MenusManager
-{
-	// Declaring the private section of the class.
-	private:
-
-		// Private members can be declared here if needed.
+class menusManager {
 
 	// Declaring the public section of the class.
-	public:
+    public:
 
-		// Empty constructor for the MenusManager class.
-		MenusManager();
+        // Display options when no account file exists.
+        // Returns user choice (1 or 2).
+        int showAccountCreationMenu();
 
-		// Declaring function to display the main menu and get user input.
-		int displayMainMenu();
+        // Display options when an account file DOES exist.
+        // Returns user choice (1 or 2).
+        int showLoginMenu();
 
-		// Declaring function to display the login menu.
-		int displayLoginMenu();
+        // Display the main application options after login.
+        // Returns user choice (1-5).
+        int showMainMenu();
 
-};
+}; // End of MenusManager class.
 
