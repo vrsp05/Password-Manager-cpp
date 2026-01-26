@@ -33,6 +33,8 @@ A console-based C++ password manager application that provides secure storage an
 
 ### Instructions for using the software:
 
+YouTube Demo available [here](https://youtu.be/vUFVAjBw8Dk).
+
 1. **First Launch - Account Creation**:
 - When no master account exists, you'll be prompted to create one.
 - Enter a username.
